@@ -177,7 +177,7 @@ abstract class Calculator {
 //    }
 //}
 
-// Lv1 요구사항 코드
+// Lv2 초기 요구사항 코드
 //public class App {
 //    public static void main(String[] args){
 //

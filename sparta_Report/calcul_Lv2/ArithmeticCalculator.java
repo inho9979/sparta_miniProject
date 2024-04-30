@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class ArithmeticCalculator extends Calculator{
 
-    private Operator operClass;
     public ArithmeticCalculator(ArrayList<Double> list){
         super(list);
     }
@@ -38,24 +37,24 @@ public class ArithmeticCalculator extends Calculator{
 
         switch (oper){
             case "+" -> {
-                operClass = new AddOperator(number1, number2);
-                result = operClass.operator();
+                Operator operClass = new AddOperator();
+                result = operClass.operator(number1, number2);
             }
             case "-" -> {
-                operClass = new SubTractOperator(number1, number2);
-                result = operClass.operator();
+                Operator operClass = new SubTractOperator();
+                result = operClass.operator(number1, number2);
             }
             case "*" -> {
-                operClass = new MultiplyOperator(number1, number2);
-                result = operClass.operator();
+                Operator operClass = new MultiplyOperator();
+                result = operClass.operator(number1, number2);
             }
             case "/" -> {
-                operClass = new DivideOperator('/', number1, number2);
-                result = operClass.operator();
+                Operator operClass = new DivideOperator();
+                result = operClass.operator(number1, number2);
             }
             case "%" -> {
-                operClass = new DivideOperator('%', number1, number2);
-                result = operClass.operator();
+                Operator operClass = new ModOperator();
+                result = operClass.operator(number1, number2);
             }
         }
 
