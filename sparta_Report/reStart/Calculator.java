@@ -5,7 +5,13 @@ import java.util.List;
 
 public class Calculator {
     /* 연산 결과를 저장하는 컬렉션 타입 필드 선언 및 생성 */
-    private List<Integer> resultArray = new ArrayList<>();
+    private List<Integer> resultArray;
+
+    /* 연산 결과를 저장하는 컬렉션 타입 필드가 생성자를 통해 초기화 되도록 변경 */
+    /* 생성자 구현 */
+    public Calculator(List<Integer> list){
+        resultArray = list;
+    }
 
     public int calculate(int num1, int num2, char oper) throws CalculatorInputException {
         /* 위 요구사항에 맞게 구현 */
