@@ -45,4 +45,12 @@ public class Calculator {
     public void removeResult(){
         resultArray.removeFirst();
     }
+
+    public void inquiryResultArray(){
+        int count = 1;
+        for(int e : resultArray){
+            System.out.println(count + "번째 결과: " + e);
+            count++;
+        }
+    }
 }

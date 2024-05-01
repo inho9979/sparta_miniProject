@@ -44,11 +44,10 @@ public class Main {
                 calculator.removeResult();
 
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-            int count = 1;
+
+            /* 위 요구사항에 맞게 소스 코드 수정  클래스에 저장된 연산 결과들을 조회하는 기능을 가진 메서드를 구현 */
             if (sc.next().equals("inquiry")) {
-                for (int e : resultArray) {
-                    System.out.println(count + "번째 결과: " + e);
-                }
+                calculator.inquiryResultArray();
             }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
