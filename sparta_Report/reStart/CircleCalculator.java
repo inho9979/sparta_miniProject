@@ -1,24 +1,30 @@
 package sparta_Report.reStart;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CircleCalculator extends Calculator {
-    private double radius;
 
-    public CircleCalculator(List<Double> list){
+    public CircleCalculator() {
+    }
+
+    public CircleCalculator(List<Double> list) {
         super(list);
     }
 
-    public void circleInit(double radius){
-        this.radius = radius;
-    }
-
-    @Override
-    public double calculate() throws CalculatorInputException {
+    public double calculate(double radius) {
         double result = 0;
         result = radius * radius * PI;
-        addResultArray(result);
+
+        super.addResultArray(result);
         return result;
     }
 
+    @Override
+    public void inquiryResultArray() {
+        int count = 1;
+        for (double e : super.getResultArray()) {
+            System.out.println(count + "번째 원의 넓이: " + e);
+        }
+    }
 }

@@ -7,9 +7,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        /* Calculator 인스턴스 생성 */
         /* 요구사항에 맞게 Calculator 인스턴스 생성 부분 수정 */
-        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator(new ArrayList<>());
+        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator(new ArrayList<>(),new AddOperator()
+                , new SubtractOperator(), new MultiplyOperator(), new DivideOperator());
+        
         CircleCalculator circleCalculator = new CircleCalculator(new ArrayList<>());
 
         Scanner sc = new Scanner(System.in);
@@ -30,15 +31,12 @@ public class Main {
 
                 double result = 0;
 
-                /* 위 요구사항에 맞게 소스 코드 수정 */
-                arithmeticCalculator.arithmeticInit(number1, number2, oper);
                 try {
-                    result = arithmeticCalculator.calculate();
+                    result = arithmeticCalculator.calculate(number1,number2,oper);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
                 System.out.println("결과: " + result);
-                /* 배열에서 컬렉션으로 변경됨으로써 변경해야하는 부분 구현 */
 
                 /* 요구사항에 맞게 구현 remove”라는 문자열을 입력받으면 가장 먼저 저장된 결과가 삭제될 수 있도록 구현 */
                 System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
@@ -55,9 +53,8 @@ public class Main {
                 double radius = sc.nextDouble();
                 double resultRadius = 0;
 
-                circleCalculator.circleInit(radius);
                 try{
-                    resultRadius = circleCalculator.calculate();
+                    resultRadius = circleCalculator.calculate(radius);
                 }catch (Exception e) {}
 
                 System.out.println("결과: " + resultRadius);
