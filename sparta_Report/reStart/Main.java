@@ -1,14 +1,14 @@
 package sparta_Report.reStart;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        /* 연산의 결과를 저장할 수 있도록 적합한 타입의 배열을 생성합니다. */
-        /* 연산의 결과가 저장된 배열의 마지막 index를 저장하는 변수를 선언 */
-        int[] resultArray= new int[10];
-        int arrayIndex = 0;
+        /* 적합한 컬렉션 타입의 변수 선언 */
+        List<Integer> resultArray = new ArrayList<>();
 
         Scanner sc = new Scanner(System.in);
 
@@ -38,16 +38,11 @@ public class Main {
                 }
             }
             System.out.println("결과: " + result);
-            /* 연산의 결과를 배열에 저장합니다. */
-            /* index를 증가 시킵니다. */
-            /* 요구사항에 맞게 구현 Hint : 결과 값들이 한칸씩 앞으로 이동되면 되지 않을까? */
-            if(arrayIndex == 10){
-                for(int i=0; i<resultArray.length-2; i++){
-                    resultArray[i] = resultArray[i+1];
-                }
-            }
-            resultArray[arrayIndex] = result;
-            arrayIndex++;
+            /* 배열에서 컬렉션으로 변경됨으로써 변경해야하는 부분 구현 */
+            resultArray.add(result);
+            /* 요구사항에 맞게 구현 remove”라는 문자열을 입력받으면 가장 먼저 저장된 결과가 삭제될 수 있도록 구현 */
+            if(sc.next().equals("remove"))
+                resultArray.removeFirst();
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             /* exit을 입력 받으면 반복 종료 */
