@@ -1,6 +1,5 @@
 package sparta_Report.reStart;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CircleCalculator extends Calculator {
@@ -13,7 +12,7 @@ public class CircleCalculator extends Calculator {
     }
 
     public double calculate(double radius) {
-        double result = 0;
+        double result;
         result = radius * radius * PI;
 
         super.addResultArray(result);

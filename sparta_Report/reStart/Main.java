@@ -1,16 +1,14 @@
 package sparta_Report.reStart;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
         /* 요구사항에 맞게 Calculator 인스턴스 생성 부분 수정 */
-        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator(new ArrayList<>(),new AddOperator()
-                , new SubtractOperator(), new MultiplyOperator(), new DivideOperator());
-        
+        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator(new ArrayList<>());
+
         CircleCalculator circleCalculator = new CircleCalculator(new ArrayList<>());
 
         Scanner sc = new Scanner(System.in);
@@ -32,7 +30,7 @@ public class Main {
                 double result = 0;
 
                 try {
-                    result = arithmeticCalculator.calculate(number1,number2,oper);
+                    result = arithmeticCalculator.calculate(number1, number2, oper);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -53,9 +51,10 @@ public class Main {
                 double radius = sc.nextDouble();
                 double resultRadius = 0;
 
-                try{
+                try {
                     resultRadius = circleCalculator.calculate(radius);
-                }catch (Exception e) {}
+                } catch (Exception e) {
+                }
 
                 System.out.println("결과: " + resultRadius);
 
