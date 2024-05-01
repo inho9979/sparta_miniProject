@@ -10,6 +10,11 @@ public class ArithmeticCalculator extends Calculator{
     }
 
     @Override
+    public double calculate(double radius) throws CalculatorInputException {
+        return 0;
+    }
+
+    @Override
     public double calculate(double number1, double number2, char operator) throws CalculatorInputException {
         double result = 0;
         String oper = Character.toString(operator);
