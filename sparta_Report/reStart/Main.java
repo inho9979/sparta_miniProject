@@ -40,6 +40,12 @@ public class Main {
             System.out.println("결과: " + result);
             /* 연산의 결과를 배열에 저장합니다. */
             /* index를 증가 시킵니다. */
+            /* 요구사항에 맞게 구현 Hint : 결과 값들이 한칸씩 앞으로 이동되면 되지 않을까? */
+            if(arrayIndex == 10){
+                for(int i=0; i<resultArray.length-2; i++){
+                    resultArray[i] = resultArray[i+1];
+                }
+            }
             resultArray[arrayIndex] = result;
             arrayIndex++;
 
