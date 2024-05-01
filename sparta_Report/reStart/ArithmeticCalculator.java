@@ -19,10 +19,8 @@ public class ArithmeticCalculator extends Calculator {
         /* return 연산 결과 */
         double result = 0;
 
-
-        operatorManage.setOperator(oper);
-        Operator operator = operatorManage.getOperator();
-        result = operator.operate(num1,num2);
+        Operator operator = operatorManage.getOperator(oper);
+        result = operator.operate(num1, num2);
 
         // 계산메소드에서 결과값을 바로 array에 담도록
         super.addResultArray(result);
@@ -32,7 +30,7 @@ public class ArithmeticCalculator extends Calculator {
     @Override
     public void inquiryResultArray() {
         int count = 1;
-        for (double e : super.getResultArray()) {
+        for (Object e : super.getResultArray()) {
             System.out.println(count + "번째 결과: " + e);
             count++;
         }

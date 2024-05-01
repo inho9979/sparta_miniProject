@@ -30,7 +30,7 @@ public abstract class Calculator {
         resultArray.removeFirst();
     }
 
-    public void addResultArray(double value){
+    public void addResultArray(Double value){
         resultArray.add(value);
     }
 
