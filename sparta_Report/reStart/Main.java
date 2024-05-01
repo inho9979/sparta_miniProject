@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        /* 적합한 컬렉션 타입의 변수 선언 */
-        List<Integer> resultArray = new ArrayList<>();
+        /* Calculator 인스턴스 생성 */
+        Calculator calculator = new Calculator();
 
         Scanner sc = new Scanner(System.in);
 
@@ -24,31 +24,25 @@ public class Main {
             char oper = sc.next().charAt(0);
 
             int result = 0;
-            /* 제어문을 활용하여 위 요구사항을 만족할 수 있게 구현합니다.*/
-            switch (String.valueOf(oper)) {
-                case "+" -> result = number1 + number2;
-                case "-" -> result = number1 - number2;
-                case "*" -> result = number1 * number2;
-                case "/" -> {
-                    if (number2 == 0) {
-                        System.out.println("나눗셈 연산에서 분모에 0이 입력될 수 없습니다");
-                        break;
-                    }
-                    result = number1 / number2;
-                }
+            /* 위 요구사항에 맞게 소스 코드 수정 */
+            try{
+                calculator.calculate(number1,number2,oper);
+            }catch (Exception e)
+            {
+               System.out.println(e.getMessage());
             }
             System.out.println("결과: " + result);
             /* 배열에서 컬렉션으로 변경됨으로써 변경해야하는 부분 구현 */
-            resultArray.add(result);
+            calculator.resultArray.add(result);
             /* 요구사항에 맞게 구현 remove”라는 문자열을 입력받으면 가장 먼저 저장된 결과가 삭제될 수 있도록 구현 */
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             if(sc.next().equals("remove"))
-                resultArray.removeFirst();
+                calculator.resultArray.removeFirst();
 
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             int count = 1;
             if(sc.next().equals("inquiry")){
-                for(int e : resultArray){
+                for(int e : calculator.resultArray){
                     System.out.println(count + "번째 결과: " + e);
                 }
             }
