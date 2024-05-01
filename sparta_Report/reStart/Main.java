@@ -10,9 +10,11 @@ public class Main {
         /* Calculator 인스턴스 생성 */
         Calculator calculator = new Calculator();
         List<Integer> resultArray = calculator.getResultArray();
+
         Scanner sc = new Scanner(System.in);
 
         while (true) {
+
             System.out.print("첫 번째 숫자를 입력하세요: ");
             // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
             int number1 = sc.nextInt();
@@ -26,34 +28,32 @@ public class Main {
             int result = 0;
 
             /* 위 요구사항에 맞게 소스 코드 수정 */
-            try{
-                result = calculator.calculate(number1,number2,oper);
-            }catch (Exception e)
-            {
-               System.out.println(e.getMessage());
+            try {
+                result = calculator.calculate(number1, number2, oper);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
             System.out.println("결과: " + result);
             /* 배열에서 컬렉션으로 변경됨으로써 변경해야하는 부분 구현 */
             resultArray.add(result);
+            calculator.setResultArray(resultArray);
+
             /* 요구사항에 맞게 구현 remove”라는 문자열을 입력받으면 가장 먼저 저장된 결과가 삭제될 수 있도록 구현 */
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-            if(sc.next().equals("remove"))
-                resultArray.removeFirst();
+            if (sc.next().equals("remove"))
+                calculator.removeResult();
 
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             int count = 1;
-            if(sc.next().equals("inquiry")){
-                for(int e : resultArray){
+            if (sc.next().equals("inquiry")) {
+                for (int e : resultArray) {
                     System.out.println(count + "번째 결과: " + e);
                 }
             }
 
-            // setter로 add 및 remove 사항 반영
-            calculator.setResultArray(resultArray);
-
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             /* exit을 입력 받으면 반복 종료 */
-            if(sc.next().equals("exit"))
+            if (sc.next().equals("exit"))
                 break;
         }
     }

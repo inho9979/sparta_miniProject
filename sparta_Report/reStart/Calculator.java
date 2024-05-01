@@ -32,13 +32,17 @@ public class Calculator {
     }
 
     // getter setter 메서드 모두 깊은복사
-
     public List<Integer> getResultArray(){
         List<Integer> tempList = new ArrayList<>(resultArray);
         return tempList;
     }
+
+    // setter는 깊은복사시 문제발생, 얕은복사로 전환
     public void setResultArray(List<Integer> list){
-        resultArray.clear();
-        resultArray.addAll(list);
+        resultArray = list;
+    }
+
+    public void removeResult(){
+        resultArray.removeFirst();
     }
 }
