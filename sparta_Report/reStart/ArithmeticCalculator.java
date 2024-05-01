@@ -21,7 +21,7 @@ public class ArithmeticCalculator extends Calculator {
 
 
         operatorManage.setOperator(oper);
-        Operator operator = operatorManage.getOperator(oper);
+        Operator operator = operatorManage.getOperator();
         result = operator.operate(num1,num2);
 
         // 계산메소드에서 결과값을 바로 array에 담도록
