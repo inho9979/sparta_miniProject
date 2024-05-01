@@ -4,8 +4,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
+        /* 연산의 결과를 저장할 수 있도록 적합한 타입의 배열을 생성합니다. */
+        /* 연산의 결과가 저장된 배열의 마지막 index를 저장하는 변수를 선언 */
+        int[] resultArray= new int[10];
+        int arrayIndex = 0;
+
+        Scanner sc = new Scanner(System.in);
 
         while (true) {
             System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -33,6 +38,10 @@ public class Main {
                 }
             }
             System.out.println("결과: " + result);
+            /* 연산의 결과를 배열에 저장합니다. */
+            /* index를 증가 시킵니다. */
+            resultArray[arrayIndex] = result;
+            arrayIndex++;
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             /* exit을 입력 받으면 반복 종료 */
