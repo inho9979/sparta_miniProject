@@ -10,14 +10,8 @@ public class ArithmeticCalculator extends Calculator{
     }
 
     @Override
-    public double calculate(double radius) {
-        return 0;
-    }
-
-    @Override
     public double calculate(double number1, double number2, char operator) throws CalculatorInputException {
         double result = 0;
-
         String oper = Character.toString(operator);
 
         if(!oper.matches(REG_Operator)){
@@ -35,28 +29,25 @@ public class ArithmeticCalculator extends Calculator{
             }
         }
 
+        Operator operClass = null;
         switch (oper){
             case "+" -> {
-                Operator operClass = new AddOperator();
-                result = operClass.operator(number1, number2);
+                operClass = new AddOperator();
             }
             case "-" -> {
-                Operator operClass = new SubTractOperator();
-                result = operClass.operator(number1, number2);
+                operClass = new SubTractOperator();
             }
             case "*" -> {
-                Operator operClass = new MultiplyOperator();
-                result = operClass.operator(number1, number2);
+                operClass = new MultiplyOperator();
             }
             case "/" -> {
-                Operator operClass = new DivideOperator();
-                result = operClass.operator(number1, number2);
+                operClass = new DivideOperator();
             }
             case "%" -> {
-                Operator operClass = new ModOperator();
-                result = operClass.operator(number1, number2);
+                operClass = new ModOperator();
             }
         }
+        result = operClass.operator(number1, number2);
 
         return result;
     }

@@ -6,22 +6,38 @@ import java.util.Scanner;
 
 public class Sparta_calculator {
     public static void main(String[] args) {
+        String REG_NUMBER = "[0-9]";
         Scanner sc = new Scanner(System.in);
         int number1 = 0, number2 = 0;
         int result = 0;
-        String operator = "";
+        String operator;
         String exitStr = "";
         List<Integer> numberArray =  new ArrayList<Integer>();
         int count = 0;
 
-        while(!exitStr.equals("exit")) {
+       LOOP1: while(!exitStr.equals("exit")) {
 
             System.out.print("첫 번째 숫자를 입력하세요: ");
             // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
-            number1 = sc.nextInt();
+           try{
+               number1 = sc.nextInt();
+           }catch (Exception e)
+           {
+               System.out.println("숫자를 입력해주세요");
+               sc.nextLine();
+               continue;
+           }
             System.out.print("두 번째 숫자를 입력하세요: ");
             // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
-            number2 = sc.nextInt();
+           try{
+               number2 = sc.nextInt();
+           }catch (Exception e)
+           {
+               System.out.println("숫자를 입력해주세요");
+               sc.nextLine();
+               continue;
+           }
+
             System.out.print("사칙연산 기호를 입력하세요: ");
             sc.nextLine();
             // 사칙연산 기호를 적합한 타입으로 선언한 변수에 저장합니다.
@@ -30,7 +46,13 @@ public class Sparta_calculator {
                 case "+" -> result = number1 + number2;
                 case "-" -> result = number1 - number2;
                 case "*" -> result = number1 * number2;
-                case "/" -> result = number1 / number2;
+                case "/" -> {
+                    if(number2 == 0) {
+                        System.out.println("분모에 0이 올수는 없습니다! 다시 입력해주세요");
+                        continue LOOP1;
+                    }
+                    result = number1 / number2;
+                }
                 default -> System.out.println(operator + "는 잘못된 연산자입니다");
             }
             System.out.println("결과: " + result);
