@@ -41,8 +41,17 @@ public class Main {
             /* 배열에서 컬렉션으로 변경됨으로써 변경해야하는 부분 구현 */
             resultArray.add(result);
             /* 요구사항에 맞게 구현 remove”라는 문자열을 입력받으면 가장 먼저 저장된 결과가 삭제될 수 있도록 구현 */
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             if(sc.next().equals("remove"))
                 resultArray.removeFirst();
+
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            int count = 1;
+            if(sc.next().equals("inquiry")){
+                for(int e : resultArray){
+                    System.out.println(count + "번째 결과: " + e);
+                }
+            }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             /* exit을 입력 받으면 반복 종료 */
