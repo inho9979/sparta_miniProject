@@ -1,7 +1,6 @@
-package sparta_Report.reStart;
+package sparta_Report.updateCalcul;
 
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
@@ -33,6 +32,19 @@ public class OperatorManage {
 
     public Operator getOperator(char operatorSymbol) {
         OperatorType type = OperatorType.fromOperatorSymbol(operatorSymbol);
+
+        //생성자 초기화 안 했을때 get에서 초기화해주기
+//        if(operatorMap.containsKey(type)) {
+//            switch(type){
+//                case ADD -> operatorMap.put(type,new AddOperator());
+//                case SUB -> operatorMap.put(type,new SubtractOperator());
+//                case MULTI -> operatorMap.put(type, new MultiplyOperator());
+//                case DIVIDE -> operatorMap.put(type, new DivideOperator());
+//                case MOD -> operatorMap.put(type, new ModOperator());
+//            }
+//        }
+
         return operatorMap.get(type);
+
     }
 }

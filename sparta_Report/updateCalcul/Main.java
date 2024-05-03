@@ -1,4 +1,4 @@
-package sparta_Report.reStart;
+package sparta_Report.updateCalcul;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -33,7 +33,10 @@ public class Main {
                     result = arithmeticCalculator.calculate(number1, number2, oper);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
+                    break;
                 }
+
+
                 System.out.println("결과: " + result);
 
                 /* 요구사항에 맞게 구현 remove”라는 문자열을 입력받으면 가장 먼저 저장된 결과가 삭제될 수 있도록 구현 */
@@ -57,6 +60,10 @@ public class Main {
                 }
 
                 System.out.println("결과: " + resultRadius);
+
+                System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+                if (sc.next().equals("remove"))
+                    circleCalculator.removeResult();
 
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
                 /* 위 요구사항에 맞게 소스 코드 수정  클래스에 저장된 연산 결과들을 조회하는 기능을 가진 메서드를 구현 */
